@@ -13,3 +13,6 @@ Difficulties
 Jeorge
 Done
 - Work on Project Proposal
+To-Do
+- Redo mockup
+- Pass project proposal
