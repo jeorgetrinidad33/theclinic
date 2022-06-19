@@ -16,3 +16,13 @@ Done
 To-Do
 - Redo mockup
 - Pass project proposal
+
+
+June 19, 2022
+
+Zeshi
+Done
+- Update Trello
+- Research admin functionality
+To-Do
+- Create Login/Registration
