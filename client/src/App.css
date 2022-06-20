@@ -1,38 +1,205 @@
-.App {
+.card {
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 0.375em;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem !important;
+  color: #858876;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.w-500 {
+  width: 500px;
+}
+
+.w-800 {
+  max-width: 800px;
+}
+
+.block {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 !important;
+}
+
+.input {
+  margin: 0.5rem 0;
+  font-size: 24px;
+}
+
+.input label {
+  display: block;
+  font-weight: bold;
+}
+
+.input input {
+  width: 100%;
+  display: block;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  box-sizing: border-box;
+}
+
+.input select {
+  width: 100%;
+  display: block;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  box-sizing: border-box;
+}
+
+.rounded {
+  border-radius: 0.375em;
+}
+
+.text-default {
+  color: #707264;
+}
+
+.center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.end {
+  text-align: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button[type="submit"] {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.375em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: #fff;
+  background-color: #52a52d;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button[type="submit"]:hover {
+  border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+a {
+  color: #858876;
+  text-decoration: none;
+}
+
+.mb-3 {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 0.75rem !important;
+}
+
+.mt-3 {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 0.75rem !important;
+}
+
+.mt-6 {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 1.5rem !important;
+}
+
+.header {
+  background-color: #b6d869;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 30px;
+  padding-bottom: 8px;
+}
+
+.header h1 {
+  font-size: 42px;
+  text-align: center;
+  color: #51a42c;
+}
+
+.header ul {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.header li {
+  color: #707264;
+  font-size: 20px;
+  font-weight: 700;
+  list-style-type: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  background-color: #e9f2cd;
+  padding: 12px 30px;
+  min-height: calc(100vh - 202px);
+  clear: both;
+}
+
+.btn-appointment {
+  background-color: #52a52d;
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 160px;
+  cursor: pointer;
+}
+
+.btn-appointment:hover {
+  border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.title {
+  color: #707264;
+  font-size: 32px;
+  border-bottom: 3px solid #52a52d;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-bottom: 6px;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 800px;
+  font-size: 24px;
+  border-bottom: 5px solid #52a52d;
+  padding-bottom: 16px;
+}
+
+.container:last-child {
+  border-bottom: none;
+}
+
+.container .date {
+  color: #707264;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.container .content {
+  padding: 6px;
+  background-color: #fff;
+  word-wrap: break-word;
+}
+
+.container .content p {
+  margin-top: 0;
 }
