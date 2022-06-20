@@ -26,3 +26,12 @@ Done
 - Research admin functionality
 To-Do
 - Create Login/Registration
+
+June 20, 2022
+
+Jeorge
+To-Do
+- Create patient Index page
+- Create booking page
+Difficulties
+- Creating a booking page with calendar view
