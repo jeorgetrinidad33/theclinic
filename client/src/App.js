@@ -21,28 +21,28 @@ function App() {
   const [token, setToken] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    Axios.length("http://localhost:3001/api/appointments").then((response) => {
-      setAppointmentsList(response.data);
-    });
+  // useEffect(() => {
+  //   Axios.length("http://localhost:3001/api/appointments").then((response) => {
+  //     setAppointmentsList(response.data);
+  //   });
 
-    const currentToken = sessionStorage.getItem("token");
+  //   const currentToken = sessionStorage.getItem("token");
 
-    setSignedIn(!!currentToken);
-    if (currentToken) {
-      setToken(currentToken);
-        let user = jwt(currentToken);
-        setUser(user || {});
-    }
-  }, []);
+  //   setSignedIn(!!currentToken);
+  //   if (currentToken) {
+  //     setToken(currentToken);
+  //       let user = jwt(currentToken);
+  //       setUser(user || {});
+  //   }
+  // }, []);
 
-  Axios.interceptors.request.use((request) => {
-    if (signedIn) {
-      console.log("token")
-      request.headers.common.Authorization = `Bearer ${token}`;
-    }
-    return request;
-  })
+  // Axios.interceptors.request.use((request) => {
+  //   if (signedIn) {
+  //     console.log("token")
+  //     request.headers.common.Authorization = `Bearer ${token}`;
+  //   }
+  //   return request;
+  // })
 
   const updateSignedInStatus = (value, data) => {
     setSignedIn(value);
@@ -88,9 +88,9 @@ function App() {
       >
         <Route index element={
             <Appointments 
-              signedIn={signedIn}
-              appointmentsList={appointmentsList}
-              user={user}
+              // signedIn={signedIn}
+              // appointmentsList={appointmentsList}
+              // user={user}
             />
           } 
         />
