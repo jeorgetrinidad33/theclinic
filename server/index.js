@@ -16,7 +16,7 @@ const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "admin123",
-  database: "reactblog",
+  database: "theclinic",
 });
 
 app.use(
@@ -29,16 +29,16 @@ app.use(
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/api/todos", authenticateToken, (req, res) => {
-  const id = req.user.id;
-  const sqlAll = "SELECT * FROM todos WHERE ownerId = ?";
-  db.query(sqlInsert, [id], (err, result) => {
-    if (err) console.log(err);
-    res.send(result);
-  });
+app.get("/api/appointments", authenticateToken, (req, res) => {
+  // const id = req.user.id;
+  // const sqlAll = "SELECT * FROM appointments WHERE patientId = ?";
+  // db.query(sqlAll, [id], (err, result) => {
+  //   if (err) console.log(err);
+  //   res.send(result);
+  // });
 });
 
-app.post("/api/todos", authenticateToken, (req, res) => {
+app.post("/api/appointments", authenticateToken, (req, res) => {
   const id = req.user.id;
   const task = req.body.task;
   const dueDate = req.body.dueDate;
@@ -66,33 +66,31 @@ app.post("/api/todos/:id", authenticateToken, (req, res) => {
 });
 
 app.post("/api/register", (req, res) => {
+  const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
+  const role = req.body.role;
   const sqlRegister =
-    "INSERT INTO users (name, email, password) VALUES (?,?,?)";
+    "INSERT INTO users (name, email, password, role) VALUES (?,?,?,?)";
 
   bcrypt.hash(password, saltRounds, (err, passwordHash) => {
-    db.query(sqlRegister, [email, passwordHash], (err, result) => {
-      if (err) console.log(err);
+    db.query(sqlRegister, [name, email, passwordHash, role], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ err: err });
+        return;
+      }
       res.send(result);
     });
   });
 });
 
-app.get("/api/login", (req, res) => {
-  if (req.session.user) {
-    res.send({ loggedin: true, user: req.session.user });
-  } else {
-    res.send({ loggedin: false });
-  }
-});
-
 app.post("/api/login", (req, res) => {
-  const email = req.body.email;
+  const name = req.body.name;
   const password = req.body.password;
-  const sqlLogin = "SELECT * FROM users WHERE email = ?";
+  const sqlLogin = "SELECT * FROM users WHERE name = ?";
 
-  db.query(sqlLogin, [email], (err, result) => {
+  db.query(sqlLogin, [name], (err, result) => {
     if (err) {
       res.send({ err: err });
       return;
@@ -103,7 +101,7 @@ app.post("/api/login", (req, res) => {
         if (response) {
           let user = {
             id: result[0].id,
-            email: result[0].email,
+            name: result[0].name,
           };
           const token = generateAccessToken(user);
 
