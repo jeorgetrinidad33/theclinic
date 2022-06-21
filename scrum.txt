@@ -43,3 +43,10 @@ Done
 To-Do
 - Create Login/Registration back-end
 - Create Admin back-end
+
+June 21, 2022
+
+Jeorge
+To-Do
+- Finish patient index page
+- Create booking page
