@@ -35,3 +35,11 @@ To-Do
 - Create booking page
 Difficulties
 - Creating a booking page with calendar view
+
+Zeshi
+Done
+- Create Login/Registration front-end
+- Create Admin front-end
+To-Do
+- Create Login/Registration back-end
+- Create Admin back-end
