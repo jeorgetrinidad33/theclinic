@@ -6,6 +6,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const e = require("express");
 
 const saltRounds = 10;
 
@@ -16,7 +17,7 @@ const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "admin123",
-  database: "theclinic",
+  database: "clinic",
 });
 
 app.use(
@@ -63,6 +64,32 @@ app.post("/api/todos/:id", authenticateToken, (req, res) => {
     if (err) console.log(err);
     res.send(result);
   });
+});
+
+app.get("/api/users/:role", (req, res) => {
+  const role = req.params.role;
+
+  if (role) {
+    const sqlSelect = "SELECT * FROM users WHERE role = ?";
+
+    db.query(sqlSelect, [role], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ err: err });
+      }
+      res.send(result);
+    });
+  } else {
+    const sqlSelect = "SELECT * from users";
+
+    db.query(sqlSelect, (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ err: err });
+      }
+      res.send(result);
+    });
+  }
 });
 
 app.post("/api/register", (req, res) => {
