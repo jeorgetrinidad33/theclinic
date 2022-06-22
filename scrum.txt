@@ -71,3 +71,10 @@ To Do
 - Backend for pages
 Difficulties
 - implementing calendar and time picker
+
+Zeshi
+Done
+- Admin Back-end research
+To-Do
+- Create Admin Back-end
+
