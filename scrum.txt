@@ -50,3 +50,12 @@ Jeorge
 To-Do
 - Finish patient index page
 - Create booking page
+
+Zeshi
+Done
+- Create Login/Registration back-end
+To-Do
+- Create Admin Back-end
+- Host App on Heroku
+Difficulties
+- Admin functionalities
