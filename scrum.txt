@@ -59,3 +59,15 @@ To-Do
 - Host App on Heroku
 Difficulties
 - Admin functionalities
+
+June 22, 2022
+
+Jeorge
+Done
+- Index page
+- Booking Page
+To Do
+- Calendar for booking page
+- Backend for pages
+Difficulties
+- implementing calendar and time picker
