@@ -54,6 +54,8 @@ app.post("/api/appointments", authenticateToken, (req, res) => {
   });
 });
 
+app.post("/api/admin/available-schedul", authenticateToken, (req, res) => {});
+
 app.post("/api/todos/:id", authenticateToken, (req, res) => {
   const todoId = req.params.id;
   const isDone = req.body.isDone;
