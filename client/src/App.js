@@ -9,11 +9,10 @@ import "./App.css";
 import Appointments from "./pages/Appointments";
 import ScheduleAppointment from "./pages/ScheduleAppointment";
 import AppointmentConfirm from "./pages/AppointmentConfirm";
-import Schedule from "./pages/Admin/DoctorSchedule";
+import Schedule from "./pages/Admin/Schedule";
 import Doctors from "./pages/Admin/Doctors";
-import DoctorForm from "./pages/Admin/DoctorForm";
 import AddNote from "./pages/Admin/AddNote";
-import DoctorSchedule from "./pages/Admin/DoctorSchedule";
+import { Axios } from "axios";
 
 function App() {
   const [appointmentsList, setAppointmentsList] = useState("");
@@ -63,46 +62,41 @@ function App() {
   };
 
   const updateAppointmentsList = (appointments) => {
-    let data = [
-      ...appointmentsList.filter((a) => a.id !== appointments.id),
-      appointments,
-    ];
+    let data = [...appointmentsList.filter((a) => a.id !== appointments.id), appointments];
     data = data.sort((a, b) => a.id - b.id);
     setAppointmentsList(data);
   };
 
   return (
     <Routes>
-      <Route
-        path="/login"
-        element={<Login signedIn={signedIn} onUpdate={updateSignedInStatus} />}
+      <Route path="/login" 
+        element={
+          <Login 
+            signedIn={signedIn} 
+            onUpdate={updateSignedInStatus} 
+          />
+        } 
       />
       <Route path="/register" element={<Register />} />
-      <Route
-        path="/"
-        element={
-          <Layout
-            signedIn={signedIn}
+      <Route path="/" element={
+          <Layout 
+            signedIn={signedIn} 
             onUpdate={updateSignedInStatus}
             onLogout={updateSignedInStatus}
           />
         }
       >
-        <Route
-          index
-          element={
-            <Appointments
-            // signedIn={signedIn}
-            // appointmentsList={appointmentsList}
-            // user={user}
+        <Route index element={
+            <Appointments 
+              // signedIn={signedIn}
+              // appointmentsList={appointmentsList}
+              // user={user}
             />
-          }
+          } 
         />
         <Route path="book-appointment" element={<ScheduleAppointment />} />
         <Route paht="appointment-confirmed" element={<AppointmentConfirm />} />
         <Route path="admin/doctors" element={<Doctors />} />
-        <Route path="admin/doctors/add" element={<DoctorForm />} />
-        <Route path="admin/doctors/:id/schedule" element={<DoctorSchedule />} />
         <Route path="admin/patients/:id/note" element={<AddNote />} />
         <Route path="admin/schedules" element={<Schedule />} />
       </Route>
