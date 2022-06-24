@@ -79,9 +79,16 @@ To-Do
 - Create Admin Back-end
 
 June 23, 2022
+
+Jeorge
 Done
 - Doctor's schedule page
 - Doctors page
 To Do
 - routes
 - backend
+
+Zeshi
+To-Do
+- Finish Admin back-end
+- Heroku cloud hosting
