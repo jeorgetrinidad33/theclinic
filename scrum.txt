@@ -92,3 +92,9 @@ Zeshi
 To-Do
 - Finish Admin back-end
 - Heroku cloud hosting
+
+June 25, 2022
+
+Zeshi
+Difficulties
+- Admin back-end: doctor availabilities
